@@ -1,0 +1,35 @@
+# Unblock krunkeer.io
+
+# Importing the necessary modules
+from subprocess import Popen, PIPE
+import re
+
+# Defining the function to unblock krunkeer.io
+def unblock_krunkeer():
+    # Checking if krunkeer.io is already blocked
+    if check_block_status():
+        # Updating the hosts file to unblock krunkeer.io
+        update_hosts_file()
+
+# Function to check if krunkeer.io is blocked
+def check_block_status():
+    # Opening the hosts file in read mode
+    with open('/etc/hosts', 'r') as hosts_file:
+        # Reading the contents of hosts file
+        hosts_content = hosts_file.read()
+        
+        # Using regular expression to check if krunkeer.io is blocked
+        if re.search(r'(^|\n)0\.0\.0\.0\s+krunkeer\.io', hosts_content):
+            return True
+        else:
+            return False
+
+# Function to update the hosts file
+def update_hosts_file():
+    # Opening the hosts file in append mode
+    with open('/etc/hosts', 'a') as hosts_file:
+        # Appending the entry to unblock krunkeer.io
+        hosts_file.write('\n0.0.0.0 krunkeer.io\n')
+
+# Calling the function to unblock krunkeer.io
+unblock_krunkeer()
