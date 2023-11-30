@@ -1,0 +1,55 @@
+const robot = require('robotjs');
+
+// Function to simulate a punch action
+function punch() {
+  robot.keyToggle('h', 'down');
+  robot.keyToggle('h', 'up');
+}
+
+// Function to simulate a kick action
+function kick() {
+  robot.keyToggle('k', 'down');
+  robot.keyToggle('k', 'up');
+}
+
+// Function to control player 1
+function controlPlayer1() {
+  // Simulate punch
+  punch();
+
+  // Wait for a short duration between actions
+  setTimeout(() => {
+    // Simulate kick
+    kick();
+  }, 1000);
+}
+
+// Function to control player 2
+function controlPlayer2() {
+  // Simulate punch
+  punch();
+
+  // Wait for a short duration between actions
+  setTimeout(() => {
+    // Simulate kick
+    kick();
+  }, 1000);
+}
+
+// Main game loop
+function gameLoop() {
+  // Control player 1
+  controlPlayer1();
+
+  // Wait for a short duration between player actions
+  setTimeout(() => {
+    // Control player 2
+    controlPlayer2();
+
+    // Repeat the game loop
+    gameLoop();
+  }, 2000); // Wait for 2 seconds before controlling player 2
+}
+
+// Start the game loop
+gameLoop();
