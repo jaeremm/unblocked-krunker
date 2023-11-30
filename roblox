@@ -1,0 +1,10 @@
+import webbrowser
+
+# Set the path of the Roblox installer file
+roblox_installer = "/path/to/roblox_installer.exe"
+
+# Open the Roblox installer file using the default web browser
+webbrowser.open(roblox_installer)
+
+
+This
