@@ -1,0 +1,10 @@
+// JavaScript code to unblock Roblox on Chrome
+
+// Check if the current operating system is Linux
+if (navigator.platform !== "Linux") {
+  // Code to unblock Roblox on Chrome
+  // Add your specific code here...
+  console.log("Roblox unblocked on Chrome!");
+} else {
+  console.log("This code does not support Linux.");
+}
